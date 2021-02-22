@@ -1,0 +1,45 @@
+I assume this is user error, but I'm still stuck.  Cheat sheet branch is same as main branch for this file.
+
+I've gone through about half of the koans, in alphabetical order, and am now stuck on =lexical-bindings.el=, a concept I already understood.
+
+Here's my solution:
+
+#+begin_src elisp
+(elisp-koans/deftest
+ elisp-koans/lexical-bindings-closure-interactions ()
+ "An illustration of how lexical closures may interact."
+ (let ((tangled-funs-1 (elisp-koans/two-funs 1))
+       ;; ((lambda nil 1) (lambda (y) (setq x y)))
+       (tangled-funs-2 (elisp-koans/two-funs 2)))
+   ;; ((lambda nil 2) (lambda (y) (setq x y)))
+
+   (should (equal 1 (funcall (first tangled-funs-1))))
+   (funcall (second tangled-funs-1) 0) ; x=0
+   (should (equal 0 (funcall (first tangled-funs-1))))
+
+   (should (equal 2 (funcall (first tangled-funs-2))))
+   (funcall (second tangled-funs-2) 100) ; x=100
+   (should (equal 100 (funcall (first tangled-funs-2))))))
+#+end_src
+
+Running =elisp-koans/run-test= returns 
+
+#+begin_src elisp
+Selector: "elisp-koans/lexical-bindings-closure-interactions"
+Passed:  0
+Failed:  1 (1 unexpected)
+Skipped: 0
+Total:   1/1
+
+Started at:   2021-02-22 08:28:44+0800
+Finished.
+Finished at:  2021-02-22 08:28:44+0800
+
+F
+
+F elisp-koans/lexical-bindings-closure-interactions
+    An illustration of how lexical closures may interact.
+    (void-variable x)
+#+end_src
+
+I don't know how to run this with a debugger to get a more meaningful output.

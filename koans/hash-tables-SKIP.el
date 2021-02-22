@@ -23,10 +23,10 @@
  "make a new hash table with `make-hash-table'"
  (let ((my-hash-table))
    (setf my-hash-table (make-hash-table))
-   (should (eq ___ (typep my-hash-table 'hash-table)))
-   (should (eq ___  (hash-table-p my-hash-table)))
-   (should (eq ___  (hash-table-p '(3 3 3))))
-   (should (eq ___ (hash-table-count my-hash-table)))))
+   (should (eq t (typep my-hash-table 'hash-table)))
+   (should (eq t  (hash-table-p my-hash-table)))
+   (should (eq nil  (hash-table-p '(3 3 3))))
+   (should (eq 0 (hash-table-count my-hash-table)))))
 
 
 (elisp-koans/deftest

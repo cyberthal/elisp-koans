@@ -34,11 +34,11 @@
   (let ((player-1 (make-basketball-player
                    :name "larry" :team :celtics :number 33)))
     (should (equal "larry" (basketball-player-name player-1)))
-    (should (equal ___ (basketball-player-team player-1)))
-    (should (equal ___ (basketball-player-number player-1)))
+    (should (equal :celtics (basketball-player-team player-1)))
+    (should (equal 33 (basketball-player-number player-1)))
     (should (equal 'basketball-player (type-of player-1)))
     (setf (basketball-player-team player-1) :RETIRED)
-    (should (equal ___ (basketball-player-team player-1)))))
+    (should (equal :RETIRED (basketball-player-team player-1)))))
 
 
 (cl-defstruct baseball-player name (position :outfield) (team :red-sox))

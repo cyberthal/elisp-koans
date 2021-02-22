@@ -13,11 +13,15 @@
 
 ** Usage
 
+*** setup
+
    Create a clone of this repository:
 
    #+BEGIN_SRC sh
      git clone https://github.com/jtmoulia/elisp-koans
    #+END_SRC
+
+*** each time
 
    First load [[file:elisp-koans.el][elisp-koans.el]] by opening it in Emacs then running the interactive
    command =eval-buffer=.
