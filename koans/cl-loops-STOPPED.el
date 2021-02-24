@@ -25,7 +25,7 @@
         (loop-result
          (cl-loop for letter in letters
                   collect letter)))
-   (should (equal ___ loop-result))))
+   (should (equal letters loop-result))))
 
 
 (elisp-koans/deftest
@@ -36,7 +36,7 @@
          (cl-loop for letter in letters
                   for i from 1 to 1000
                   collect (list i letter))))
-   (should (equal ___ loop-result))))
+   (should (equal '((1 :a) (2 :b) (3 :c) (4 :d)) loop-result))))
 
 
 (elisp-koans/deftest
@@ -47,7 +47,7 @@
          (cl-loop for letter in letters
                   for i from 0 to 1000 by 5
                   collect (list i letter))))
-   (should (equal ___ loop-result))))
+   (should (equal '((0 :a) (5 :b) (10 :c) (15 :d)) loop-result))))
 
 
 (elisp-koans/deftest
@@ -56,7 +56,7 @@
  (let ((loop-result
         (cl-loop for i from 10 downto -10 by 5
                  collect i )))
-   (should (equal ___ loop-result))))
+   (should (equal '(10 5 0 -5 -10) loop-result))))
 
 
 (elisp-koans/deftest
@@ -68,7 +68,7 @@
         (loop-result-on
          (cl-loop for letter on letters collect letter)))
    (should (equal ___ loop-result-in))
-   (should (equal ___ loop-result-on))))
+   (should (equal ___ loop-result-on)))) ; not relevant; stopping here.  STOPPED
 
 
 (elisp-koans/deftest

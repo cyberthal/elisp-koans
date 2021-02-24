@@ -26,6 +26,7 @@
 ;; Define a new struct with the cl-defstruct form. The following call creates a
 ;; new structure type named basketball-player, with slots named: 'name', 'team',
 ;; and number.
+
 (cl-defstruct basketball-player name team number)
 
 (elisp-koans/deftest
